@@ -7998,5 +7998,21 @@
         "email": "tworboysrr@narod.ru",
         "gender": "Male",
         "job_title": "Clinical Specialist"
+    },
+    {
+        "id": 1001,
+        "first_name": "Ayush",
+        "last_name": "Choudhary",
+        "email": "ayush1@gmail.com",
+        "gender": "male",
+        "job_title": "cybersecurity peneration tester"
+    },
+    {
+        "id": 1002,
+        "first_name": "Sujal",
+        "last_name": "Shrivastav",
+        "email": "sujal@gmail.com",
+        "gender": "male",
+        "job_title": "Frontend Developer"
     }
 ]
