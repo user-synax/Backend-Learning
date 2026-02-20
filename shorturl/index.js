@@ -4,6 +4,7 @@ const path = require("path")
 const URL = require("./models/url")
 const urlRoute = require("./routes/url")
 const staticRoute = require("./routes/staticRouter")
+const userRoute = require("./routes/user")
 
 const app = express()
 const PORT = 8080
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/url", urlRoute)
 app.use("/", staticRoute)
+app.use("/user", userRoute)
 
 app.get("/:shortid", async (req, res) => {
     const shortId = String(req.params.shortid)
