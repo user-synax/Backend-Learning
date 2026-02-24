@@ -7,8 +7,7 @@ const setUser = (user) => {
             _id: user._id,
             email: user.email,
         },
-        secret,
-        { expiresIn: "1h" }
+        secret
     )
 }
 
