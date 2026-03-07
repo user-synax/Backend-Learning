@@ -2,7 +2,7 @@ const express = require("express")
 const cookieParser = require("cookie-parser")
 const { ConnectDB } = require("./connection")
 const path = require("path")
-const { restrictToLoggedinUserOnly, checkAuth } = require("./Middlewares/Auth")
+const { checkForAuthentication, restrictTo } = require("./Middlewares/Auth")
 const URL = require("./models/url")
 const urlRoute = require("./routes/url")
 const staticRoute = require("./routes/staticRouter")
@@ -18,10 +18,11 @@ app.set('views', path.resolve("./views"))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser())
+app.use(checkForAuthentication)
 
 
-app.use("/", checkAuth, staticRoute)
-app.use("/url", restrictToLoggedinUserOnly, urlRoute)
+app.use("/", staticRoute)
+app.use("/url", restrictTo(["NORMAL"]), urlRoute)
 app.use("/user", userRoute)
 
 app.get("/:shortid", async (req, res) => {
